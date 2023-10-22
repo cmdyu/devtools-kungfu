@@ -9,7 +9,7 @@ kungfu of chrome devtools
 $$('.panel ul').forEach(x => {x.classList.add('in')})
 ```
 
-- Batch unfollow twitter flowing（批量取消twitter关注）
+- Batch unfollow twitter following（批量取消twitter关注）
 ```javascript
 // go to https://twitter.com/[userName]/following, and execute the following code in DevTools console
 (async function twtterBatchUnfollow() {
