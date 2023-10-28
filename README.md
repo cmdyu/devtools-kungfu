@@ -8,6 +8,10 @@ kungfu of chrome devtools
 // go to https://code.visualstudio.com/api/, and execute the following code in DevTools console
 $$('.panel ul').forEach(x => {x.classList.add('in')})
 ```
+- Batch unstar github repo
+```javascript
+for await (x of $$('.js-toggler-container .starred button')) { await new Promise(r => setTimeout(r, 500)); x.click() }
+```
 
 - Batch unfollow twitter following（批量取消twitter关注）
 ```javascript
