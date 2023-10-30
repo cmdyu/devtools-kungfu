@@ -1,0 +1,17 @@
+[
+    "testWorkTicketStatus",
+    "workTicketNoValid",
+    "dailyPlanAutoFill",
+    "testWorkTicketBtnShow",
+    "testWorkTicketType",
+    ['testWorkTicketTaskDefinitionKey', ''],
+].forEach(x => {
+    let k = x, v = 'k'
+    
+    if (Array.isArray(x)) {
+        k = x[0]
+        v = x[1]
+    }
+    
+    localStorage.setItem(k, v)
+})

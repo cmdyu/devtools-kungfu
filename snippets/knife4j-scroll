@@ -1,0 +1,1 @@
+document.querySelector("#app > div > section > section > div > div.ant-tabs-content.ant-tabs-content-no-animated.ant-tabs-top-content.ant-tabs-card-content > div.ant-tabs-tabpane.ant-tabs-tabpane-active > main").scrollBy(0,300)

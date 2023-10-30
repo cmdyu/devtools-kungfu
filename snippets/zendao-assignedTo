@@ -1,0 +1,62 @@
+/**
+ * 将某个禅道bug指派给xx
+ */
+
+//获取触发按钮
+const $triggerBtn = document.querySelector("#mainContent > div.main-col.col-8 > div.main-actions > div > a:nth-child(4) > span")
+if (!$triggerBtn) alert('未能获取到触发按钮，请确认是否在bug详情页')
+
+//点击触发按钮，若按钮不存在，则会报错，终止脚本执行
+$triggerBtn.click()
+
+//因为打开对话框有延迟，所以设置一个定时器，检测对话框是否已打开
+const interval = setInterval(() => {
+    //获取对话框
+    const $modal = document.querySelector("#iframe-triggerModal")
+
+    //若取不到对话框，中止后续处理
+    if (!$modal) return
+
+    //获取指派给下拉菜单
+    const $select = $modal.contentDocument.querySelector("#assignedTo")
+
+    //若取不到下拉菜单，中止后续处理
+    if (!$select) return
+
+    let isSelected = false
+    
+    while (!isSelected) {
+        const target = prompt('请输入指派对象')
+
+        if (!target) continue
+
+        const strArr = target.split('').map(x => '.*' + x)
+        strArr.push('.*')
+
+        const regStr = strArr.join('')
+        const reg = new RegExp(regStr)
+    
+        const optionsArr = Array.from($select.options)
+        const option = optionsArr.find(x => reg.test(x.value))
+
+        if (!option) continue
+
+        if (confirm(option.innerText)) {
+            $select.value = option.value
+            isSelected = true
+        }
+    }
+    
+    //获取备注输入框
+    const $comment = $modal.contentDocument.querySelector("#comment")
+
+    if ($comment) {
+        $comment.value = prompt('备注')
+    }
+
+    //点击保存按钮
+    $modal.contentDocument.querySelector("#submit").click()
+
+    //清除定时器
+    clearInterval(interval)
+}, 500)

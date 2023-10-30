@@ -1,0 +1,9 @@
+    cat <<'EOF'
+		//提取 gitlab issue 列表
+		$('.issue-title-text').each((k, v) => {
+			var p = document.createElement('p');
+			p.append(v.innerText);
+			document.body.append(p)
+		})
+EOF
+
