@@ -262,6 +262,11 @@ fetch("https://www.youtube.com/youtubei/v1/browse?key=AIzaSyAO_FJ2SlqU8Q4STEHLGC
 // go to https://code.visualstudio.com/api/, and execute the following code in DevTools console
 $$('.panel ul').forEach(x => {x.classList.add('in')})
 ```
+- Batch unfollow github user
+```javascript
+for await (x of $$('.js-form-toggle-container input[value="Unfollow"]')){await new Promise(r=>setTimeout(r,500));x.click()}
+```
+
 - Batch unstar github repo
 ```javascript
 for await (x of $$('.js-toggler-container .starred button')) { await new Promise(r => setTimeout(r, 500)); x.click() }
